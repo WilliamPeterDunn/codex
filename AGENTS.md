@@ -14,3 +14,15 @@ Demonstrate rapid prototyping using LLM-assisted development. Make Codex tool us
 
 - Use test-driven development: write a failing test for the intended behavior, implement the change, then run the test and iterate until it passes.
 - Implementation work is not done until the relevant tests pass. Report any tests that could not be run and why.
+
+## Code Review Rules
+
+### Privacy and authorization
+
+- Flag any public path that could expose drafts, unpublished story versions, private account fields, reports, or private story content. Check that owner-only writes enforce ownership at every server entry point.
+- Flag media access that can bypass publication/ownership checks, use user-controlled filesystem paths, or serve stale cached content after unpublishing.
+
+### Secrets and operational safety
+
+- Flag credentials or private user data in source, logs, CI output, or public DTOs. Host-only account and moderation commands must not be reachable through web routes; password resets must not accept or log password arguments.
+- Flag upload handling that trusts request size/type headers, skips quota reservations/cleanup, or permits untrusted forwarded client-IP headers.
