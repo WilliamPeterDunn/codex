@@ -109,3 +109,10 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human decision:** Offer all six Creative Commons Attribution 4.0 International licenses (CC BY, CC BY-SA, CC BY-ND, CC BY-NC, CC BY-NC-SA, and CC BY-NC-ND) plus a custom permission statement. Require an explicit choice per story version and do not preselect or silently inherit terms.
 - **Codex tools used:** Updated `USER_STORIES.md`, `BACKLOG.md`, and `ARCHITECTURE.md` to make the choice consistent across product behavior, acceptance criteria, and data model.
 - **Review evidence:** Reviewed the six license identifiers against Creative Commons' official license overview; documentation lint and whitespace checks run for this change.
+
+## 2026-11-03 — Split repository agent guidance by task
+
+- **Task:** Make `AGENTS.md` a concise entry point and move planning, code review, and architecture-change workflows into focused guides.
+- **Human direction:** Keep the main file brief and actionable; include commands, paths, rules, and pitfalls; reference `Plans.md`, `Code_review.md`, and `guides/Architecture.md` for task-specific guidance.
+- **Codex tools used:** Inspected current project instructions and docs; created the three referenced guides and updated `AGENTS.md`.
+- **Review evidence:** Keep the main file under 100 lines; verify guide paths and commands; include interface, verification, rollout, and worktree guidance for large parallel work; run Markdown lint and `git diff --check`.
