@@ -1,6 +1,6 @@
 # Storytelling and translation platform
 
-> **Status:** Working product brief for a rapid prototype. Product choices below are hypotheses to validate, not settled policy.
+> **Status:** Working product brief for a rapid prototype. Architecture and scope choices for v1 are recorded in `ARCHITECTURE.md`.
 
 ## Purpose
 
@@ -36,26 +36,29 @@ The project has two equally important outcomes:
 
 ## Prototype scope
 
-Build a responsive web app that demonstrates the complete reader path and a lightweight publishing path with realistic sample content.
+Build a responsive web app that demonstrates the reader path and a real, lightweight publishing path. Run it as a single self-hosted Docker app with persistent local data.
 
 ### Include
 
 - A browsable story library with search and simple filters for language and format.
 - A story detail page with a text, image, audio, or video presentation, creator attribution, license information, and related versions.
 - A linked translation view with language, translator credit, and review status.
-- A publish form covering story metadata, format, attribution, and reuse terms; publishing can use local/demo data until persistence is needed.
+- Username/password sign-up and sign-in for creators. Sign-in uses username and password; sign-up also collects a private email required by the auth library. Public identity uses a separate display name or pseudonym.
+- A publish form covering story metadata, format, attribution, and reuse terms; published stories and uploaded media persist on the host.
+- Uploads for text, images, audio, video, and PDF documents, with a 40 MiB limit per file.
+- Signed-in reader reports; maintainers can review and unpublish using host-only commands.
 - A clear empty state and a small amount of sample content that demonstrates more than one medium and language.
 - Responsive layouts, keyboard-accessible controls, and clear labels for media and language.
 
 ### Defer
 
-- Accounts, uploads to durable cloud storage, moderation queues, payments, analytics, and production search infrastructure.
+- Multiple app instances, cloud storage, an in-app moderation queue, payments, analytics, and production search infrastructure.
 - Automated translation. It can be explored later, but must not silently replace a source or imply that generated translations have been reviewed.
 - Complex regional policy or legal determinations. The prototype should present creator-selected terms plainly and avoid claiming that a checkbox resolves consent or ownership questions.
 
 ## Platform recommendation
 
-Start as a **responsive web app**. Stories are shareable by link, and a browser experience works across phones and computers without app installation. Keep the first implementation small and easy to iterate; choose a TypeScript UI stack suited to the existing repository once the first screen and data model are ready. Use local/demo data initially so the core experience can be prototyped before committing to accounts, hosting, or a storage provider.
+Use **Next.js with TypeScript** in one Docker container. Store application data in SQLite and media files on a persistent Docker volume on the same host. Username/password authentication is local; a public deployment still needs HTTPS from the host or a reverse proxy. This keeps the prototype to one app service and its persistent data volume. The host operator is responsible for backups, updates, and disk capacity.
 
 The first demo should use English UI and sample stories in at least two languages. Which region, language pair, and rights wording to prioritize should be validated with intended storytellers before treating them as product policy.
 
@@ -68,6 +71,4 @@ The implementation should make the LLM-assisted development process inspectable,
 - Which first community, region, and language pair should the sample experience represent?
 - Who may publish, and what consent or safeguarding steps are appropriate for stories involving other people or communities?
 - Which reuse options are understandable and appropriate for the intended storytellers?
-- Should translations be added by the original creator, a translator, or either with a review/approval step?
-- What media types and file-size limits matter most in places with limited connectivity?
-- What should be persistently stored in the first deployable version?
+- Which media limits and formats best fit storytellers' connectivity and devices?

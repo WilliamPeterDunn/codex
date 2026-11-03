@@ -25,3 +25,27 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Codex must review all PRs automatically.
 - **Decision recorded:** Review findings should be addressed or have the reason for not acting on them documented.
 - **Review evidence:** See the current diff for `AGENTS.md`.
+
+## 2026-11-03 — Initial application architecture
+
+- **Task:** Save the architecture plan for the storytelling platform.
+- **Codex tools used:** Inspected the repository and product brief with shell commands; researched current official Next.js, Supabase, Vercel, Vitest, and Playwright documentation; delegated architecture drill-down and adversarial review to Codex subagents; added `ARCHITECTURE.md` with a patch tool.
+- **Human decisions:** Next.js App Router with TypeScript, Vercel, Supabase, Google OAuth, creator accounts, owner-managed translations, self-publishing with reporting, 40 MiB upload limit, service-console moderation, signed-in reporting, and in-place edits for v1.
+- **Review decisions:** Isolate PR previews and CI from production data and credentials; use private owner-scoped media storage and short-lived published-only URLs; enforce RLS, test authorization allow/deny paths, pin/isolate the currently beta Supabase SSR integration, and assign a maintainer for reports.
+- **Review evidence:** `ARCHITECTURE.md` contains the selected design, acceptance tests, assumptions, and direct links to official documentation. The adversarial review was completed before this plan was saved.
+
+## 2026-11-03 — Reduce prototype hosting scope
+
+- **Task:** Revise the prototype architecture for self-hosted Docker deployment.
+- **Codex tools used:** Researched official Next.js, Supabase self-hosting, Better Auth, and SQLite documentation; updated `ARCHITECTURE.md`, `IDEA.md`, and this log with a patch tool.
+- **Initial direction:** Use one Next.js app container, SQLite, uploaded media on a persistent host volume, and Google OAuth; Google OAuth was later removed at the user's direction.
+- **Scope changes:** Remove Vercel, Supabase, Postgres, hosted storage, and PR preview environments. Keep creator publishing and reports; operate moderation with host-only commands. The single-instance design accepts manual backup/restore and no horizontal scaling.
+- **Review evidence:** The revised architecture and product brief describe the new self-hosted boundary; documentation diff checked before commit.
+
+## 2026-11-03 — Replace OAuth with local username/password
+
+- **Task:** Remove Google OAuth and keep account access local to the Docker app.
+- **Codex tools used:** Checked Better Auth's official username, password, and SQLite documentation; updated `ARCHITECTURE.md`, `IDEA.md`, and this log with a patch tool.
+- **Human direction:** Use a username/password login form instead of OAuth.
+- **Decision recorded:** Better Auth's username plugin requires an email at signup; use a private, unverified account email while keeping the login form username/password only. No verification or recovery email in v1.
+- **Review evidence:** A Codex subagent challenged backup consistency, disk abuse, media range handling, proxy trust, password recovery, brute-force and username enumeration, and non-resumable uploads. The architecture now includes an offline DB/media backup and restore test, upload quotas and temporary-space reservations, `206`/`416` range behavior with no-store responses, uncached story reads, proxy-only access, local password change/reset, database-backed rate limits, private-email omission tests, and explicit retry-on-failure scope. Password reset requires independent out-of-band identity verification; unverified email is not used for recovery. Final adversarial review found no remaining blockers.
