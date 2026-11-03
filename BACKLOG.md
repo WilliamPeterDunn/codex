@@ -122,9 +122,9 @@ Cross-cutting foundation, accessibility, demo, moderation operations, deployment
 
 **Depends on:** PUB-01
 
-**Outcome:** The creator chooses attribution and reuse terms or a custom permission statement for each version.
+**Outcome:** For each version, the creator explicitly chooses one of the six Creative Commons Attribution 4.0 International licenses (CC BY, CC BY-SA, CC BY-ND, CC BY-NC, CC BY-NC-SA, or CC BY-NC-ND) or writes a custom permission statement. No license is preselected.
 
-**Acceptance:** Plain-language explanations and a link to the full license/permission are displayed; terms are never inherited silently; required terms prevent publication when absent; interface does not claim selection establishes consent or ownership.
+**Acceptance:** Plain-language explanations and a link to the full license deed or custom permission are displayed; store the selected license identifier/URL or custom statement per version; terms are never inherited silently; required terms prevent publication when absent; interface does not claim selection establishes consent or ownership.
 
 #### PUB-03 — Preview and publish a version
 
