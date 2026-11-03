@@ -57,3 +57,11 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Identify story titles first, then fan out agents to populate each story’s detail.
 - **Decisions recorded:** The seven stories cover discovery, reading/version switching, publishing/terms, linked translations, media handling, creator accounts, and reports/host unpublishing. Each includes a user need, value, acceptance criteria, and scope or edge cases consistent with the v1 architecture.
 - **Review evidence:** Compare `USER_STORIES.md` with the source constraints in `IDEA.md` and `ARCHITECTURE.md`; this planning-only change does not alter application code or require running the application test suite.
+
+## 2026-11-03 — Build complete v1 delivery backlog
+
+- **Task:** Convert the user story catalog and self-hosted architecture into an implementation-ready, sequenced backlog.
+- **Codex tools used:** Inspected `USER_STORIES.md`, `IDEA.md`, `ARCHITECTURE.md`, project instructions, and Git history; created a documentation feature branch; drafted and reviewed `BACKLOG.md`; checked whitespace and scope traceability.
+- **Human decisions:** Include full v1 delivery work for product and implementers; keep the user story catalog and add a separate backlog; defer topic search to match the architecture; track open user validation as non-blocking discovery; retain English UI and English/isiZulu samples until validation.
+- **Decisions recorded:** Added stable backlog IDs, MUST/DISCOVERY priorities, dependency order, acceptance criteria, test work, and operations/security/deployment tasks. The backlog chooses a host-managed TLS reverse proxy, consistent with the architecture options, and records architecture-deferred capabilities separately.
+- **Review evidence:** `BACKLOG.md` is cross-referenced against the user stories and architecture. `git diff --check` is the documentation check; no application code changed, so application tests were not run.
