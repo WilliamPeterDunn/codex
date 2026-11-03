@@ -80,3 +80,17 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Codex tools used:** Created a small documentation-only PR to trigger and observe the native review alongside the existing CI checks.
 - **Human direction:** Enable automatic review and try it.
 - **Review evidence:** [PR #6](https://github.com/WilliamPeterDunn/codex/pull/6) triggered a native Codex review on open; it completed with no findings. Secrets scan and Markdown lint also passed on the PR.
+
+## 2026-11-03 — Record manual merge preference
+
+- **Task:** Preserve the user's instruction that they will request merges to `main` manually.
+- **Decision recorded:** Open and review pull requests as usual, but never merge without the user's explicit request.
+- **Review evidence:** Updated the Git workflow rule in `AGENTS.md`; this preference change remains in a pull request until the user chooses to merge it.
+
+## 2026-11-03 — Record implementation preflight
+
+- **Task:** Resolve repository-side implementation prerequisites on the existing manual-merge preference PR.
+- **Codex tools used:** Inspected the open PR, architecture, and local tool availability; added the exact Node patch pin and `DEVELOPMENT.md`; checked the setup guide with markdownlint.
+- **Human direction:** Handle outstanding setup matters as commits on the open PR, then merge to `main`.
+- **Decisions recorded:** Pin local Node to 24.22.1; use npm; document Docker Desktop/Compose as a required host prerequisite, Vitest for unit/SQLite integration tests, Playwright for browser flows, the CI checks that exist today, and CI/branch-protection work to add when the app scaffold exists. Keep automatic merges disabled; the user's explicit merge request authorizes this merge.
+- **Review evidence:** Local markdownlint and `git diff --check` passed. `.nvmrc` pins Node 24.22.1, but the current shell remains on 24.13.0: winget verified the installer and then requested administrator elevation, so the install was cancelled. Docker Compose is not available in the current shell; installing Docker Desktop requires host-level setup. The app scaffold and app-level test/build jobs remain future bootstrap work.
