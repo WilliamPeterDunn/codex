@@ -80,3 +80,9 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Codex tools used:** Created a small documentation-only PR to trigger and observe the native review alongside the existing CI checks.
 - **Human direction:** Enable automatic review and try it.
 - **Review evidence:** [PR #6](https://github.com/WilliamPeterDunn/codex/pull/6) triggered a native Codex review on open; it completed with no findings. Secrets scan and Markdown lint also passed on the PR.
+
+## 2026-11-03 — Record manual merge preference
+
+- **Task:** Preserve the user's instruction that they will request merges to `main` manually.
+- **Decision recorded:** Open and review pull requests as usual, but never merge without the user's explicit request.
+- **Review evidence:** Updated the Git workflow rule in `AGENTS.md`; this preference change remains in a pull request until the user chooses to merge it.
