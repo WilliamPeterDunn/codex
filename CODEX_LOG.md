@@ -73,3 +73,10 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Add a secrets scan and linter to commit CI; consider native Codex features and other external CI tools.
 - **Decisions recorded:** Use Gitleaks and markdownlint-cli2 as the two deterministic CI checks, pin actions by commit SHA, scan full Git history, and limit workflow token permissions to read-only. Native Codex automatic PR review requires a connected repository and an enabled Codex settings toggle; this session cannot change that setting. A manual `@codex review` request received no bot response, and no `OPENAI_API_KEY` repository secret is configured for a separate Codex GitHub Action, so the action was not added. The new `AGENTS.md` review rules guide native Codex review once enabled. Markdownlint keeps line-length checks off for the existing prose style and allows repeated subheadings in separate stories; repeated story labels were changed from bold text to real headings.
 - **Review evidence:** The workflow triggers on pushes and pull requests; linter targets Markdown because the repository currently contains planning documents only. Local `markdownlint-cli2@0.23.3 "**/*.md"` passed: 6 files, 0 issues. GitHub CI passed both Secrets scan and Markdown lint on push and pull request. No application tests are part of this tooling-only change.
+
+## 2026-11-03 — Verify native Codex automatic review
+
+- **Task:** Verify the native Codex GitHub review after automatic review was enabled in Codex settings.
+- **Codex tools used:** Created a small documentation-only PR to trigger and observe the native review alongside the existing CI checks.
+- **Human direction:** Enable automatic review and try it.
+- **Review evidence:** This PR is the verification event; record whether Codex reviews it before merging.
