@@ -25,3 +25,11 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Codex must review all PRs automatically.
 - **Decision recorded:** Review findings should be addressed or have the reason for not acting on them documented.
 - **Review evidence:** See the current diff for `AGENTS.md`.
+
+## 2026-11-03 — Initial application architecture
+
+- **Task:** Save the architecture plan for the storytelling platform.
+- **Codex tools used:** Inspected the repository and product brief with shell commands; researched current official Next.js, Supabase, Vercel, Vitest, and Playwright documentation; delegated architecture drill-down and adversarial review to Codex subagents; added `ARCHITECTURE.md` with a patch tool.
+- **Human decisions:** Next.js App Router with TypeScript, Vercel, Supabase, Google OAuth, creator accounts, owner-managed translations, self-publishing with reporting, 40 MiB upload limit, service-console moderation, signed-in reporting, and in-place edits for v1.
+- **Review decisions:** Isolate PR previews and CI from production data and credentials; use private owner-scoped media storage and short-lived published-only URLs; enforce RLS, test authorization allow/deny paths, pin/isolate the currently beta Supabase SSR integration, and assign a maintainer for reports.
+- **Review evidence:** `ARCHITECTURE.md` contains the selected design, acceptance tests, assumptions, and direct links to official documentation. The adversarial review was completed before this plan was saved.
