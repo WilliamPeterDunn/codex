@@ -102,3 +102,10 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Install Compose; prefer a lighter option because disk space is limited.
 - **Decision recorded:** Use Docker Engine inside the existing Ubuntu WSL 2 distro rather than Docker Desktop. This avoids installing Desktop while preserving Docker Compose compatibility.
 - **Review evidence:** `docker compose version` reported 5.7.0; Docker Engine reported 29.9.2; `docker run --rm hello-world` succeeded. Removed the test image after verification. Updated `DEVELOPMENT.md`; the PR is left open for user-requested merge.
+
+## 2026-11-03 — Set the v1 reuse license choices
+
+- **Task:** Resolve the open product choice for reuse terms before implementation.
+- **Human decision:** Offer all six Creative Commons Attribution 4.0 International licenses (CC BY, CC BY-SA, CC BY-ND, CC BY-NC, CC BY-NC-SA, and CC BY-NC-ND) plus a custom permission statement. Require an explicit choice per story version and do not preselect or silently inherit terms.
+- **Codex tools used:** Updated `USER_STORIES.md`, `BACKLOG.md`, and `ARCHITECTURE.md` to make the choice consistent across product behavior, acceptance criteria, and data model.
+- **Review evidence:** Reviewed the six license identifiers against Creative Commons' official license overview; documentation lint and whitespace checks run for this change.

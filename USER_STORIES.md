@@ -58,7 +58,7 @@ These stories turn the v1 product brief and architecture into reviewable, user-f
 
 - A signed-in creator can create a draft with a title, public creator name or pseudonym, description, language, and one primary format.
 - The creator can add story text or an uploaded media file and provide applicable image descriptions, audio/video transcripts or captions, and document details.
-- The creator selects attribution and reuse terms for each version, or provides a custom permission statement. Terms are not silently inherited.
+- For each version, the creator explicitly selects one of the six Creative Commons Attribution 4.0 International licenses (CC BY, BY-SA, BY-ND, BY-NC, BY-NC-SA, or BY-NC-ND) or provides a custom permission statement. No license is preselected and terms are not silently inherited.
 - Before publishing, the creator can preview the public page, including its media, attribution, and terms.
 - Publishing makes the version visible to anonymous readers. Drafts remain unavailable to public pages, search results, and reader media requests.
 - Public pages and results show public identity and omit private sign-in email and other private account fields.
@@ -67,7 +67,7 @@ These stories turn the v1 product brief and architecture into reviewable, user-f
 ### Scope and edge cases
 
 - Requires a signed-in creator account and the story/media creation flow. V1 supports in-place edits, not revision history.
-- Reuse terms use available choices or a custom statement. The app does not make legal determinations.
+- Reuse terms use one of the six Creative Commons Attribution 4.0 International licenses or a custom permission statement. The app links to the selected license deed and does not make legal determinations.
 - Missing required metadata or explicit attribution and reuse terms prevents publication. Invalid or over-limit media leaves the draft unpublished and produces a clear error.
 
 ## 4. Add a credited translation linked to its source
