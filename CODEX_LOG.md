@@ -79,4 +79,4 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Task:** Verify the native Codex GitHub review after automatic review was enabled in Codex settings.
 - **Codex tools used:** Created a small documentation-only PR to trigger and observe the native review alongside the existing CI checks.
 - **Human direction:** Enable automatic review and try it.
-- **Review evidence:** This PR is the verification event; record whether Codex reviews it before merging.
+- **Review evidence:** [PR #6](https://github.com/WilliamPeterDunn/codex/pull/6) triggered a native Codex review on open; it completed with no findings. Secrets scan and Markdown lint also passed on the PR.
