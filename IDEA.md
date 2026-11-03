@@ -58,7 +58,7 @@ Build a responsive web app that demonstrates the reader path and a real, lightwe
 
 ## Platform recommendation
 
-Use **Next.js with TypeScript** in one Docker container. Store application data in SQLite and media files on a persistent Docker volume on the same host. Username/password authentication is local; a public deployment still needs HTTPS from the host or a reverse proxy. This keeps the prototype self-hostable without operating the larger Supabase service stack. The host operator is responsible for backups, updates, and disk capacity.
+Use **Next.js with TypeScript** in one Docker container. Store application data in SQLite and media files on a persistent Docker volume on the same host. Username/password authentication is local; a public deployment still needs HTTPS from the host or a reverse proxy. This keeps the prototype to one app service and its persistent data volume. The host operator is responsible for backups, updates, and disk capacity.
 
 The first demo should use English UI and sample stories in at least two languages. Which region, language pair, and rights wording to prioritize should be validated with intended storytellers before treating them as product policy.
 
