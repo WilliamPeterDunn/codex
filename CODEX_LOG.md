@@ -49,3 +49,11 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Use a username/password login form instead of OAuth.
 - **Decision recorded:** Better Auth's username plugin requires an email at signup; use a private, unverified account email while keeping the login form username/password only. No verification or recovery email in v1.
 - **Review evidence:** A Codex subagent challenged backup consistency, disk abuse, media range handling, proxy trust, password recovery, brute-force and username enumeration, and non-resumable uploads. The architecture now includes an offline DB/media backup and restore test, upload quotas and temporary-space reservations, `206`/`416` range behavior with no-store responses, uncached story reads, proxy-only access, local password change/reset, database-backed rate limits, private-email omission tests, and explicit retry-on-failure scope. Password reset requires independent out-of-band identity verification; unverified email is not used for recovery. Final adversarial review found no remaining blockers.
+
+## 2026-11-03 — Define v1 user stories
+
+- **Task:** Continue product planning by translating the prototype brief and architecture into user stories.
+- **Codex tools used:** Inspected `IDEA.md`, `ARCHITECTURE.md`, and repository history; created a documentation feature branch; delegated story-detail drafting across reader discovery/versioning, creator publishing/translations, and media/accounts/reporting; consolidated and edited the acceptance criteria into `USER_STORIES.md`.
+- **Human direction:** Identify story titles first, then fan out agents to populate each story’s detail.
+- **Decisions recorded:** The seven stories cover discovery, reading/version switching, publishing/terms, linked translations, media handling, creator accounts, and reports/host unpublishing. Each includes a user need, value, acceptance criteria, and scope or edge cases consistent with the v1 architecture.
+- **Review evidence:** Compare `USER_STORIES.md` with the source constraints in `IDEA.md` and `ARCHITECTURE.md`; this planning-only change does not alter application code or require running the application test suite.
