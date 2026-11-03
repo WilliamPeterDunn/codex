@@ -5,8 +5,10 @@ This repository is still at the planning stage; the Next.js app scaffold and pac
 ## Local prerequisites
 
 - **Node.js:** Use the exact LTS patch in `.nvmrc` (`24.22.1`). Verify with `node --version`. Use npm and commit the generated `package-lock.json` when the app is scaffolded.
-- **Docker Desktop with Compose:** Required to run the planned single-container app, named data volume, and local end-to-end deployment check. The Docker CLI is currently unavailable in this workspace.
+- **Docker Engine with Compose V2:** Installed in the existing Ubuntu 24.04 WSL 2 distribution (Docker Engine 29.9.2, Compose plugin 5.7.0). Docker Desktop is not required. Run Docker commands from Ubuntu WSL; from PowerShell, prefix them with `wsl -d Ubuntu --`. The Windows repository is available inside Ubuntu at `/mnt/c/Projects/personal/codex`.
 - **Git and GitHub:** Work on feature branches and open pull requests. The user will explicitly request any merge to `main`.
+
+Docker images and containers use the Ubuntu WSL virtual disk. Check usage with `docker system df`; remove unused images with `docker image prune` when space is needed. Do not prune volumes, which may contain persistent app data.
 
 Keep local configuration in an ignored `.env.local`, create an `.env.example` containing names and safe defaults only, and use seeded test identities. Never use production data or put credentials in CI, fixtures, logs, or `CODEX_LOG.md`.
 

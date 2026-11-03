@@ -94,3 +94,11 @@ This log records meaningful Codex-assisted work so the development process is re
 - **Human direction:** Handle outstanding setup matters as commits on the open PR, then merge to `main`.
 - **Decisions recorded:** Pin local Node to 24.22.1; use npm; document Docker Desktop/Compose as a required host prerequisite, Vitest for unit/SQLite integration tests, Playwright for browser flows, the CI checks that exist today, and CI/branch-protection work to add when the app scaffold exists. Keep automatic merges disabled; the user's explicit merge request authorizes this merge.
 - **Review evidence:** Local markdownlint and `git diff --check` passed. `.nvmrc` pins Node 24.22.1, but the current shell remains on 24.13.0: winget verified the installer and then requested administrator elevation, so the install was cancelled. Docker Compose is not available in the current shell; installing Docker Desktop requires host-level setup. The app scaffold and app-level test/build jobs remain future bootstrap work.
+
+## 2026-11-03 — Install Docker Compose in WSL
+
+- **Task:** Install Docker Compose using a lighter setup than Docker Desktop.
+- **Codex tools used:** Checked WSL 2 and Ubuntu 24.04 availability; consulted Docker's official Engine and Compose installation docs; installed Docker Engine, CLI, Buildx, and Compose V2 from Docker's signed Ubuntu apt repository; verified a container run.
+- **Human direction:** Install Compose; prefer a lighter option because disk space is limited.
+- **Decision recorded:** Use Docker Engine inside the existing Ubuntu WSL 2 distro rather than Docker Desktop. This avoids installing Desktop while preserving Docker Compose compatibility.
+- **Review evidence:** `docker compose version` reported 5.7.0; Docker Engine reported 29.9.2; `docker run --rm hello-world` succeeded. Removed the test image after verification. Updated `DEVELOPMENT.md`; the PR is left open for user-requested merge.
